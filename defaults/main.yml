@@ -172,122 +172,122 @@ audit_output_destination: /opt/audit_summaries/
 # Section 1 is Initial setup (FileSystem Configuration, Configure Software Updates, Filesystem Integrity Checking,
 # Secure Boot Settings, Additional Process Hardening, Mandatory Access Control and Command Line Warning Banners)
 # Configure Filesystem Kernel Modules
-amzn2023cis_rule_1_1_1_1: true
-amzn2023cis_rule_1_1_1_2: true
-amzn2023cis_rule_1_1_1_3: true
-amzn2023cis_rule_1_1_1_4: true
-amzn2023cis_rule_1_1_1_5: true
-amzn2023cis_rule_1_1_1_6: true
-amzn2023cis_rule_1_1_1_7: true
+amzn2023cis_rule_1_1_1_1: false
+amzn2023cis_rule_1_1_1_2: false
+amzn2023cis_rule_1_1_1_3: false
+amzn2023cis_rule_1_1_1_4: false
+amzn2023cis_rule_1_1_1_5: false
+amzn2023cis_rule_1_1_1_6: false
+amzn2023cis_rule_1_1_1_7: false
 # Configure /tmp
-amzn2023cis_rule_1_1_2_1: true
-amzn2023cis_rule_1_1_2_2: true
+amzn2023cis_rule_1_1_2_1: false
+amzn2023cis_rule_1_1_2_2: false
 amzn2023cis_rule_1_1_2_3: true
-amzn2023cis_rule_1_1_2_4: true
+amzn2023cis_rule_1_1_2_4: false
 # Configure /var
-amzn2023cis_rule_1_1_3_1: true
-amzn2023cis_rule_1_1_3_2: true
-amzn2023cis_rule_1_1_3_3: true
+amzn2023cis_rule_1_1_3_1: false
+amzn2023cis_rule_1_1_3_2: false
+amzn2023cis_rule_1_1_3_3: false
 # Configure /var/tmp
-amzn2023cis_rule_1_1_4_1: true
-amzn2023cis_rule_1_1_4_2: true
-amzn2023cis_rule_1_1_4_3: true
-amzn2023cis_rule_1_1_4_4: true
+amzn2023cis_rule_1_1_4_1: false
+amzn2023cis_rule_1_1_4_2: false
+amzn2023cis_rule_1_1_4_3: false
+amzn2023cis_rule_1_1_4_4: false
 # Configure /var/log
-amzn2023cis_rule_1_1_5_1: true
-amzn2023cis_rule_1_1_5_2: true
-amzn2023cis_rule_1_1_5_3: true
-amzn2023cis_rule_1_1_5_4: true
+amzn2023cis_rule_1_1_5_1: false
+amzn2023cis_rule_1_1_5_2: false
+amzn2023cis_rule_1_1_5_3: false
+amzn2023cis_rule_1_1_5_4: false
 # Configure /var/log/audit
-amzn2023cis_rule_1_1_6_1: true
-amzn2023cis_rule_1_1_6_2: true
-amzn2023cis_rule_1_1_6_3: true
-amzn2023cis_rule_1_1_6_4: true
+amzn2023cis_rule_1_1_6_1: false
+amzn2023cis_rule_1_1_6_2: false
+amzn2023cis_rule_1_1_6_3: false
+amzn2023cis_rule_1_1_6_4: false
 # Configure /home
-amzn2023cis_rule_1_1_7_1: true
-amzn2023cis_rule_1_1_7_2: true
-amzn2023cis_rule_1_1_7_3: true
+amzn2023cis_rule_1_1_7_1: false
+amzn2023cis_rule_1_1_7_2: false
+amzn2023cis_rule_1_1_7_3: false
 # Configure /dev/shm
-amzn2023cis_rule_1_1_8_1: true
-amzn2023cis_rule_1_1_8_2: true
+amzn2023cis_rule_1_1_8_1: false
+amzn2023cis_rule_1_1_8_2: false
 amzn2023cis_rule_1_1_8_3: true
-amzn2023cis_rule_1_1_8_4: true
-amzn2023cis_rule_1_1_9: true
+amzn2023cis_rule_1_1_8_4: false
+amzn2023cis_rule_1_1_9: false
 # Configure Software and Patch Management
-amzn2023cis_rule_1_2_1: true
+amzn2023cis_rule_1_2_1: false
 amzn2023cis_rule_1_2_2: true
-amzn2023cis_rule_1_2_3: true
-amzn2023cis_rule_1_2_4: true
+amzn2023cis_rule_1_2_3: false
+amzn2023cis_rule_1_2_4: false
 # Filesystem Integrity Checking
 amzn2023cis_rule_1_3_1: true
 amzn2023cis_rule_1_3_2: true
 amzn2023cis_rule_1_3_3: true
 # Secure Boot Settings
-amzn2023cis_rule_1_4_1: true
-amzn2023cis_rule_1_4_2: true
+amzn2023cis_rule_1_4_1: false
+amzn2023cis_rule_1_4_2: false
 # Additional Process Hardening
 amzn2023cis_rule_1_5_1: true
 amzn2023cis_rule_1_5_2: true
 amzn2023cis_rule_1_5_3: true
 amzn2023cis_rule_1_5_4: true
 # Configure SELinux
-amzn2023cis_rule_1_6_1_1: true
-amzn2023cis_rule_1_6_1_2: true
-amzn2023cis_rule_1_6_1_3: true
-amzn2023cis_rule_1_6_1_4: true
-amzn2023cis_rule_1_6_1_5: true
-amzn2023cis_rule_1_6_1_6: true
-amzn2023cis_rule_1_6_1_7: true
-amzn2023cis_rule_1_6_1_8: true
+amzn2023cis_rule_1_6_1_1: false
+amzn2023cis_rule_1_6_1_2: false
+amzn2023cis_rule_1_6_1_3: false
+amzn2023cis_rule_1_6_1_4: false
+amzn2023cis_rule_1_6_1_5: false
+amzn2023cis_rule_1_6_1_6: false
+amzn2023cis_rule_1_6_1_7: false
+amzn2023cis_rule_1_6_1_8: false
 # Command Line Warning Banners
-amzn2023cis_rule_1_7_1: true
+amzn2023cis_rule_1_7_1: false
 amzn2023cis_rule_1_7_2: true
 amzn2023cis_rule_1_7_3: true
-amzn2023cis_rule_1_7_4: true
-amzn2023cis_rule_1_7_5: true
-amzn2023cis_rule_1_7_6: true
-amzn2023cis_rule_1_8: true
-amzn2023cis_rule_1_9: true
+amzn2023cis_rule_1_7_4: false
+amzn2023cis_rule_1_7_5: false
+amzn2023cis_rule_1_7_6: false
+amzn2023cis_rule_1_8: false
+amzn2023cis_rule_1_9: false
 
 ## Section 2 rules
 # Section 2 is Services (Special Purpose Services, and service clients)
 # Configure Time Synchronization (chrony)
-amzn2023cis_rule_2_1_1: true
+amzn2023cis_rule_2_1_1: false
 amzn2023cis_rule_2_1_2: true
 # Configure Special Purpose Services
-amzn2023cis_rule_2_2_1: true
-amzn2023cis_rule_2_2_2: true
-amzn2023cis_rule_2_2_3: true
-amzn2023cis_rule_2_2_4: true
-amzn2023cis_rule_2_2_5: true
-amzn2023cis_rule_2_2_6: true
-amzn2023cis_rule_2_2_7: true
-amzn2023cis_rule_2_2_8: true
-amzn2023cis_rule_2_2_9: true
-amzn2023cis_rule_2_2_10: true
-amzn2023cis_rule_2_2_11: true
-amzn2023cis_rule_2_2_12: true
-amzn2023cis_rule_2_2_13: true
-amzn2023cis_rule_2_2_14: true
-amzn2023cis_rule_2_2_15: true
-amzn2023cis_rule_2_2_16: true
-amzn2023cis_rule_2_2_17: true
-amzn2023cis_rule_2_2_18: true
+amzn2023cis_rule_2_2_1: false
+amzn2023cis_rule_2_2_2: false
+amzn2023cis_rule_2_2_3: false
+amzn2023cis_rule_2_2_4: false
+amzn2023cis_rule_2_2_5: false
+amzn2023cis_rule_2_2_6: false
+amzn2023cis_rule_2_2_7: false
+amzn2023cis_rule_2_2_8: false  # web services
+amzn2023cis_rule_2_2_9: false
+amzn2023cis_rule_2_2_10: false
+amzn2023cis_rule_2_2_11: false
+amzn2023cis_rule_2_2_12: false
+amzn2023cis_rule_2_2_13: false
+amzn2023cis_rule_2_2_14: false
+amzn2023cis_rule_2_2_15: false
+amzn2023cis_rule_2_2_16: false
+amzn2023cis_rule_2_2_17: false
+amzn2023cis_rule_2_2_18: false
 # Service Clients
-amzn2023cis_rule_2_3_1: true
-amzn2023cis_rule_2_3_2: true
-amzn2023cis_rule_2_3_3: true
-amzn2023cis_rule_2_3_4: true
+amzn2023cis_rule_2_3_1: false
+amzn2023cis_rule_2_3_2: false
+amzn2023cis_rule_2_3_3: false
+amzn2023cis_rule_2_3_4: false
 amzn2023cis_rule_2_4: true
 
 ## Section 3 rules
 # Section 3 is Network Configuration
 # Disable unused network protocols and devices
 amzn2023cis_rule_3_1_1: true
-amzn2023cis_rule_3_1_2: true
-amzn2023cis_rule_3_1_3: true
-amzn2023cis_rule_3_1_4: true
-amzn2023cis_rule_3_1_5: true
+amzn2023cis_rule_3_1_2: false
+amzn2023cis_rule_3_1_3: false
+amzn2023cis_rule_3_1_4: false
+amzn2023cis_rule_3_1_5: false
 # Network Parameters (Host Only)
 amzn2023cis_rule_3_2_1: true
 amzn2023cis_rule_3_2_2: true
@@ -302,76 +302,76 @@ amzn2023cis_rule_3_3_7: true
 amzn2023cis_rule_3_3_8: true
 amzn2023cis_rule_3_3_9: true
 # Configure a firewall utility
-amzn2023cis_rule_3_4_1_1: true
-amzn2023cis_rule_3_4_1_2: true
+amzn2023cis_rule_3_4_1_1: false
+amzn2023cis_rule_3_4_1_2: false
 # Configure firewall rules
-amzn2023cis_rule_3_4_2_1: true
-amzn2023cis_rule_3_4_2_2: true
-amzn2023cis_rule_3_4_2_3: true
-amzn2023cis_rule_3_4_2_4: true
-amzn2023cis_rule_3_4_2_5: true
-amzn2023cis_rule_3_4_2_6: true
-amzn2023cis_rule_3_4_2_7: true
+amzn2023cis_rule_3_4_2_1: false
+amzn2023cis_rule_3_4_2_2: false
+amzn2023cis_rule_3_4_2_3: false
+amzn2023cis_rule_3_4_2_4: false
+amzn2023cis_rule_3_4_2_5: false
+amzn2023cis_rule_3_4_2_6: false
+amzn2023cis_rule_3_4_2_7: false
 
 # Section 4 rules
 # Section 4 is Access, Authentication and Authorization
 # Configure time-based job schedulers
-amzn2023cis_rule_4_1_1: true
-amzn2023cis_rule_4_1_2: true
-amzn2023cis_rule_4_1_3: true
-amzn2023cis_rule_4_1_4: true
-amzn2023cis_rule_4_1_5: true
-amzn2023cis_rule_4_1_6: true
-amzn2023cis_rule_4_1_7: true
-amzn2023cis_rule_4_1_8: true
+amzn2023cis_rule_4_1_1: false
+amzn2023cis_rule_4_1_2: false
+amzn2023cis_rule_4_1_3: false
+amzn2023cis_rule_4_1_4: false
+amzn2023cis_rule_4_1_5: false
+amzn2023cis_rule_4_1_6: false
+amzn2023cis_rule_4_1_7: false
+amzn2023cis_rule_4_1_8: false
 amzn2023cis_rule_4_1_9: true
 # Configure SSH Server
-amzn2023cis_rule_4_2_1: true
-amzn2023cis_rule_4_2_2: true
-amzn2023cis_rule_4_2_3: true
-amzn2023cis_rule_4_2_4: true
-amzn2023cis_rule_4_2_5: true
-amzn2023cis_rule_4_2_6: true
+amzn2023cis_rule_4_2_1: false
+amzn2023cis_rule_4_2_2: false
+amzn2023cis_rule_4_2_3: false
+amzn2023cis_rule_4_2_4: false
+amzn2023cis_rule_4_2_5: false
+amzn2023cis_rule_4_2_6: false
 amzn2023cis_rule_4_2_7: true
-amzn2023cis_rule_4_2_8: true
-amzn2023cis_rule_4_2_9: true
-amzn2023cis_rule_4_2_10: true
-amzn2023cis_rule_4_2_11: true
-amzn2023cis_rule_4_2_12: true
-amzn2023cis_rule_4_2_13: true
-amzn2023cis_rule_4_2_14: true
+amzn2023cis_rule_4_2_8: false
+amzn2023cis_rule_4_2_9: false
+amzn2023cis_rule_4_2_10: false
+amzn2023cis_rule_4_2_11: false
+amzn2023cis_rule_4_2_12: false
+amzn2023cis_rule_4_2_13: false
+amzn2023cis_rule_4_2_14: false
 amzn2023cis_rule_4_2_15: true
 amzn2023cis_rule_4_2_16: true
 amzn2023cis_rule_4_2_17: true
-amzn2023cis_rule_4_2_18: true
+amzn2023cis_rule_4_2_18: false
 amzn2023cis_rule_4_2_19: true
-amzn2023cis_rule_4_2_20: true
+amzn2023cis_rule_4_2_20: false
 # Configure privilege escalation
-amzn2023cis_rule_4_3_1: true
+amzn2023cis_rule_4_3_1: false
 amzn2023cis_rule_4_3_2: true
 amzn2023cis_rule_4_3_3: true
-amzn2023cis_rule_4_3_4: true
-amzn2023cis_rule_4_3_5: true
+amzn2023cis_rule_4_3_4: false
+amzn2023cis_rule_4_3_5: false
 amzn2023cis_rule_4_3_6: true
 # Configure authselect
-amzn2023cis_rule_4_4_1: true
+amzn2023cis_rule_4_4_1: false
 amzn2023cis_rule_4_4_2: true
 # Configure PAM
 amzn2023cis_rule_4_5_1: true
 amzn2023cis_rule_4_5_2: true
 amzn2023cis_rule_4_5_3: true
-amzn2023cis_rule_4_5_4: true
+amzn2023cis_rule_4_5_4: false
 # Set Shadow Password Suite Parameters
 amzn2023cis_rule_4_6_1_1: true
 amzn2023cis_rule_4_6_1_2: true
-amzn2023cis_rule_4_6_1_3: true
+amzn2023cis_rule_4_6_1_3: false
 amzn2023cis_rule_4_6_1_4: true
-amzn2023cis_rule_4_6_1_5: true
-amzn2023cis_rule_4_6_2: true
+amzn2023cis_rule_4_6_1_5: false
+amzn2023cis_rule_4_6_2: false
 amzn2023cis_rule_4_6_3: true
-amzn2023cis_rule_4_6_4: true
+amzn2023cis_rule_4_6_4: false
 amzn2023cis_rule_4_6_5: true
-amzn2023cis_rule_4_6_6: true
+amzn2023cis_rule_4_6_6: false
 
 # Section 5 rules
 # Section 5 is Logging and Auditing
@@ -381,19 +381,19 @@ amzn2023cis_rule_5_1_1_2: true
 amzn2023cis_rule_5_1_1_3: true
 amzn2023cis_rule_5_1_1_4: true
 amzn2023cis_rule_5_1_1_5: true
-amzn2023cis_rule_5_1_1_6: true
+amzn2023cis_rule_5_1_1_6: false
 amzn2023cis_rule_5_1_1_7: true
 # Configure journald
-amzn2023cis_rule_5_1_2_1_1: true
-amzn2023cis_rule_5_1_2_1_2: true
-amzn2023cis_rule_5_1_2_1_3: true
-amzn2023cis_rule_5_1_2_1_4: true
-amzn2023cis_rule_5_1_2_2: true
+amzn2023cis_rule_5_1_2_1_1: false
+amzn2023cis_rule_5_1_2_1_2: false
+amzn2023cis_rule_5_1_2_1_3: false
+amzn2023cis_rule_5_1_2_1_4: false
+amzn2023cis_rule_5_1_2_2: false
 amzn2023cis_rule_5_1_2_3: true
 amzn2023cis_rule_5_1_2_4: true
-amzn2023cis_rule_5_1_2_5: true
-amzn2023cis_rule_5_1_2_6: true
-amzn2023cis_rule_5_1_2_7: true
+amzn2023cis_rule_5_1_2_5: false
+amzn2023cis_rule_5_1_2_6: false
+amzn2023cis_rule_5_1_2_7: false
 amzn2023cis_rule_5_1_3: true
 # Ensure auditing is enabled
 amzn2023cis_rule_5_2_1_1: true
@@ -442,29 +442,29 @@ amzn2023cis_rule_5_3: true
 # Section 6 rules
 # Section 6 is System Maintenance
 # System File Permissions
-amzn2023cis_rule_6_1_1: true
-amzn2023cis_rule_6_1_2: true
-amzn2023cis_rule_6_1_3: true
-amzn2023cis_rule_6_1_4: true
-amzn2023cis_rule_6_1_5: true
-amzn2023cis_rule_6_1_6: true
-amzn2023cis_rule_6_1_7: true
-amzn2023cis_rule_6_1_8: true
-amzn2023cis_rule_6_1_9: true
-amzn2023cis_rule_6_1_10: true
-amzn2023cis_rule_6_1_11: true
-amzn2023cis_rule_6_1_12: true
+amzn2023cis_rule_6_1_1: false
+amzn2023cis_rule_6_1_2: false
+amzn2023cis_rule_6_1_3: false
+amzn2023cis_rule_6_1_4: false
+amzn2023cis_rule_6_1_5: false
+amzn2023cis_rule_6_1_6: false
+amzn2023cis_rule_6_1_7: false
+amzn2023cis_rule_6_1_8: false
+amzn2023cis_rule_6_1_9: false
+amzn2023cis_rule_6_1_10: false
+amzn2023cis_rule_6_1_11: false
+amzn2023cis_rule_6_1_12: false
 # Local User and Group Settings
-amzn2023cis_rule_6_2_1: true
+amzn2023cis_rule_6_2_1: false
 amzn2023cis_rule_6_2_2: true
-amzn2023cis_rule_6_2_3: true
-amzn2023cis_rule_6_2_4: true
-amzn2023cis_rule_6_2_5: true
-amzn2023cis_rule_6_2_6: true
-amzn2023cis_rule_6_2_7: true
-amzn2023cis_rule_6_2_8: true
-amzn2023cis_rule_6_2_9: true
-amzn2023cis_rule_6_2_10: true
+amzn2023cis_rule_6_2_3: false
+amzn2023cis_rule_6_2_4: false
+amzn2023cis_rule_6_2_5: false
+amzn2023cis_rule_6_2_6: false
+amzn2023cis_rule_6_2_7: false
+amzn2023cis_rule_6_2_8: false
+amzn2023cis_rule_6_2_9: false
+amzn2023cis_rule_6_2_10: false
 amzn2023cis_rule_6_2_11: true
 
 ##
@@ -507,7 +507,7 @@ amzn2023cis_is_router: false
 
 ## IPv6 requirement toggle
 # This variable governs whether ipv6 is enabled or disabled.
-amzn2023cis_ipv6_required: true
+amzn2023cis_ipv6_required: false
 
 ## Control 1.3.1 - Ensure AIDE is installed
 # AIDE is a file integrity checking tool, similar in nature to Tripwire.
