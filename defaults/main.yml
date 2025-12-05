@@ -278,7 +278,7 @@ amzn2023cis_rule_2_3_1: false
 amzn2023cis_rule_2_3_2: false
 amzn2023cis_rule_2_3_3: false
 amzn2023cis_rule_2_3_4: false
-amzn2023cis_rule_2_4: true
+amzn2023cis_rule_2_4: false
 
 ## Section 3 rules
 # Section 3 is Network Configuration
