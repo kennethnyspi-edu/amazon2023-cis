@@ -69,7 +69,7 @@
           amzn2023cis_min_days_users: "{{ discovered_min_days.stdout_lines | intersect(prelim_interactive_usernames.stdout | default([])) | difference(amzn2023cis_sudo_nopasswd_exceptions | default([])) }}"
         when: discovered_min_days.stdout_lines is defined
 
-        - name: "4.6.1.2 | PATCH | Ensure minimum days between password changes is configured | Set existing users PASS_MIN_DAYS"
+      - name: "4.6.1.2 | PATCH | Ensure minimum days between password changes is configured | Set existing users PASS_MIN_DAYS"
         when:
           - amzn2023cis_min_days_users | length > 0
           - amzn2023cis_force_user_mindays
