@@ -884,6 +884,15 @@ amzn2023cis_sudolog_location: "/var/log/sudo.log"
 # policy.
 amzn2023cis_sudo_timestamp_timeout: 15
 
+# Exceptions for users allowed NOPASSWD in sudoers (mirror of Ubuntu template)
+amzn2023cis_sudo_nopasswd_exceptions:
+    - ubuntu
+    - ec2-user
+    - kennethnypi
+    - angienypi
+    - waseemnypi
+    - ansible-user
+
 ## Control 4.3.6 - Ensure access to the su command is restricted
 # This variable contains the name of the needed empty group
 # that will be specified for use of the su command.

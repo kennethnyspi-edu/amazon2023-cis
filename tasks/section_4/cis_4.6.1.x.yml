@@ -25,15 +25,19 @@
         failed_when: false
         register: discovered_max_days
 
-      - name: "4.6.1.1 | PATCH | Ensure password expiration is 365 days or less | Set existing users PASS_MAX_DAYS"
+      - name: "4.6.1.1 | FILTER | Filter discovered users to exclude sudo NOPASSWD exceptions and non-interactive users"
+        ansible.builtin.set_fact:
+          amzn2023cis_max_days_users: "{{ discovered_max_days.stdout_lines | intersect(prelim_interactive_usernames.stdout | default([])) | difference(amzn2023cis_sudo_nopasswd_exceptions | default([])) }}"
+        when: discovered_max_days.stdout_lines is defined
+
+        - name: "4.6.1.1 | PATCH | Ensure password expiration is 365 days or less | Set existing users PASS_MAX_DAYS"
         when:
-            - discovered_max_days.stdout_lines | length > 0
-            - item in prelim_interactive_usernames.stdout
-            - amzn2023cis_force_user_maxdays
+          - amzn2023cis_max_days_users | length > 0
+          - amzn2023cis_force_user_maxdays
         ansible.builtin.user:
-            name: "{{ item }}"
-            password_expire_max: "{{ amzn2023cis_pass['max_days'] }}"
-        loop: "{{ discovered_max_days.stdout_lines }}"
+          name: "{{ item }}"
+          password_expire_max: "{{ amzn2023cis_pass['max_days'] }}"
+        loop: "{{ amzn2023cis_max_days_users }}"
 
 - name: "4.6.1.2 | PATCH | Ensure minimum days between password changes is configured"
   when: amzn2023cis_rule_4_6_1_2
@@ -60,15 +64,19 @@
         failed_when: false
         register: discovered_min_days
 
-      - name: "4.6.1.2 | PATCH | Ensure minimum days between password changes is configured | Set existing users PASS_MIN_DAYS"
+      - name: "4.6.1.2 | FILTER | Filter discovered users to exclude sudo NOPASSWD exceptions and non-interactive users"
+        ansible.builtin.set_fact:
+          amzn2023cis_min_days_users: "{{ discovered_min_days.stdout_lines | intersect(prelim_interactive_usernames.stdout | default([])) | difference(amzn2023cis_sudo_nopasswd_exceptions | default([])) }}"
+        when: discovered_min_days.stdout_lines is defined
+
+        - name: "4.6.1.2 | PATCH | Ensure minimum days between password changes is configured | Set existing users PASS_MIN_DAYS"
         when:
-            - discovered_min_days.stdout_lines | length > 0
-            - item in prelim_interactive_usernames.stdout
-            - amzn2023cis_force_user_mindays
+          - amzn2023cis_min_days_users | length > 0
+          - amzn2023cis_force_user_mindays
         ansible.builtin.user:
-            name: "{{ item }}"
-            password_expire_min: "{{ amzn2023cis_pass['min_days'] }}"
-        loop: "{{ discovered_min_days.stdout_lines }}"
+          name: "{{ item }}"
+          password_expire_min: "{{ amzn2023cis_pass['min_days'] }}"
+        loop: "{{ amzn2023cis_min_days_users }}"
 
 - name: "4.6.1.3 | PATCH | Ensure password expiration warning days is 7 or more"
   when: amzn2023cis_rule_4_6_1_3
@@ -95,14 +103,18 @@
         failed_when: false
         register: discovered_warn_days
 
+      - name: "4.6.1.3 | FILTER | Filter discovered users to exclude sudo NOPASSWD exceptions and non-interactive users"
+        ansible.builtin.set_fact:
+          amzn2023cis_warn_days_users: "{{ discovered_warn_days.stdout_lines | intersect(prelim_interactive_usernames.stdout | default([])) | difference(amzn2023cis_sudo_nopasswd_exceptions | default([])) }}"
+        when: discovered_warn_days.stdout_lines is defined
+
       - name: "4.6.1.3 | PATCH | Ensure password expiration warning days is 7 or more | Set existing users WARN_DAYS"
         when:
-            - discovered_warn_days.stdout_lines | length > 0
-            - item in prelim_interactive_usernames.stdout
+            - amzn2023cis_warn_days_users | length > 0
             - amzn2023cis_force_user_warnage
         ansible.builtin.command: "chage --warndays {{ amzn2023cis_pass['warn_age'] }} {{ item }}"
         changed_when: true
-        loop: "{{ discovered_warn_days.stdout_lines }}"
+        loop: "{{ amzn2023cis_warn_days_users }}"
 
 - name: "4.6.1.4 | PATCH | Ensure inactive password lock is 30 days or less"
   when: amzn2023cis_rule_4_6_1_4
@@ -135,10 +147,16 @@
         check_mode: false
         register: discovered_user_list
 
+      - name: "4.6.1.4 | FILTER | Filter discovered users to exclude sudo NOPASSWD exceptions"
+        ansible.builtin.set_fact:
+          amzn2023cis_inactive_users: "{{ discovered_user_list.stdout_lines | difference(amzn2023cis_sudo_nopasswd_exceptions | default([])) }}"
+        when: discovered_user_list.stdout_lines is defined
+
       - name: "4.6.1.4 | PATCH | Ensure inactive password lock is 30 days or less | Apply Inactive setting to existing accounts"
+        when: amzn2023cis_inactive_users | length > 0
         ansible.builtin.command: chage --inactive {{ amzn2023cis_inactivelock.lock_days }} "{{ item }}"
         changed_when: true
-        loop: "{{ discovered_user_list.stdout_lines }}"
+        loop: "{{ amzn2023cis_inactive_users }}"
 
 - name: "4.6.1.5 | PATCH | Ensure all users last password change date is in the past"
   when: amzn2023cis_rule_4_6_1_5
@@ -168,24 +186,29 @@
         check_mode: false
         register: discovered_user_list
 
-      - name: "4.6.1.5 | AUDIT | Ensure all users last password change date is in the past | Alert on accounts with pw change in the future"
-        when:
-            - discovered_user_list.stdout | length > 0
-            - not amzn2023cis_futurepwchgdate_autofix
-        ansible.builtin.debug:
-            msg: "Warning!! The following accounts have the last PW change date in the future: {{ discovered_user_list.stdout_lines }}"
+      - name: "4.6.1.5 | FILTER | Filter discovered users to exclude sudo NOPASSWD exceptions"
+        ansible.builtin.set_fact:
+          amzn2023cis_futurepw_users: "{{ discovered_user_list.stdout_lines | difference(amzn2023cis_sudo_nopasswd_exceptions | default([])) }}"
+        when: discovered_user_list.stdout_lines is defined
 
-      - name: "4.6.1.5 | AUDIT | Ensure all users last password change date is in the past | warning count"
+        - name: "4.6.1.5 | AUDIT | Ensure all users last password change date is in the past | Alert on accounts with pw change in the future"
         when:
-            - discovered_user_list.stdout | length > 0
-            - not amzn2023cis_futurepwchgdate_autofix
+          - amzn2023cis_futurepw_users | length > 0
+          - not amzn2023cis_futurepwchgdate_autofix
+        ansible.builtin.debug:
+          msg: "Warning!! The following accounts have the last PW change date in the future: {{ amzn2023cis_futurepw_users }}"
+
+        - name: "4.6.1.5 | AUDIT | Ensure all users last password change date is in the past | warning count"
+        when:
+          - amzn2023cis_futurepw_users | length > 0
+          - not amzn2023cis_futurepwchgdate_autofix
         ansible.builtin.import_tasks:
-            file: warning_facts.yml
+          file: warning_facts.yml
 
       - name: "4.6.1.5 | PATCH | Ensure all users last password change date is in the past | Fix accounts with pw change in the future"
         when:
-            - discovered_user_list.stdout | length > 0
+            - amzn2023cis_futurepw_users | length > 0
             - amzn2023cis_futurepwchgdate_autofix
         ansible.builtin.command: passwd --expire {{ item }}
         changed_when: true
-        loop: "{{ discovered_user_list.stdout_lines }}"
+        loop: "{{ amzn2023cis_futurepw_users }}"
